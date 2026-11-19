@@ -1,0 +1,54 @@
+# Sampaguita (PS1) — Traducción al español
+
+Traducción completa al español de España de **Yarudora Series Vol. 3: Sampaguita** (サンパギータ, PlayStation, 1998, Sugar & Rockets / Production I.G), versión japonesa de 2 discos.
+
+> **Versión 1.0.** Todo el juego está traducido e insertado. Si encuentras algún error, abre una *issue* (hay una plantilla) y se corregirá en una versión posterior.
+
+## Qué está traducido
+- **Guion completo** de los dos discos: las 28 escenas, todas las rutas y los 3 finales buenos, 5 normales y 20 malos (≈3.250 líneas).
+- **Menús y sistema**: título, opciones con sus descripciones, controles, pausa, guardar/cargar/repetir, tarjeta de memoria, nombre del protagonista, lista de finales, galería, música y menú de Extras.
+- **Gráficos con texto**: aviso inicial, botones del título, pantallas de datos, miniaturas de guardado, pantallas de final y avisos (65 imágenes).
+- **Créditos finales**: cargos y encabezados en español; los nombres del equipo se conservan en japonés.
+- **Vídeos**: los subtítulos salen en español activándolos en **Opciones**.
+
+### Criterios
+- María habla un español sencillo e imperfecto (con infinitivos), como su japonés en el original.
+- Las frases en tagalo se conservan (Salamat, Mabuhay, Mahal kita…).
+- Se conserva sin traducir el logo «やるドラ» con su lema.
+
+## Cómo aplicar la traducción
+Necesitas tu copia del juego en formato **BIN/CUE de Redump** (sin modificar):
+
+| Disco | Archivo .bin | SHA-1 | CRC32 |
+|---|---|---|---|
+| 1 | Yarudora Series Vol. 3 - Sampaguita (Japan) (Disc 1).bin | `4b0809ee28d52dd30a633cdd0bc162dee8ee4c2d` | `E60668AF` |
+| 2 | Yarudora Series Vol. 3 - Sampaguita (Japan) (Disc 2).bin | `e84dabcdaa0408d0838e5c70175377cad6da7af9` | `B52AE67D` |
+
+### Opción A — aplicador incluido (recomendado; macOS, Windows, Linux)
+Requiere Python 3.
+- **macOS**: doble clic en `Aplicar_en_Mac.command` y arrastra el `.bin` original a la ventana. Si macOS lo bloquea: clic derecho → Abrir.
+- **Windows**: doble clic en `Aplicar_en_Windows.bat` y arrastra el `.bin`.
+- **Terminal**: `python3 aplicar_traduccion.py "ruta/al/disco.bin"`
+
+El aplicador reconoce el disco, comprueba el original, aplica el parche, verifica el resultado y crea `Sampaguita (ES v1.0) (Disco N).bin` y su `.cue`. Repite con el otro disco.
+
+### Opción B — parche BPS manual
+Aplica `Sampaguita_ES_v1.0_Disco1.bps` / `Disco2.bps` al `.bin` correspondiente con [ROM Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) o Flips. Después crea un `.cue` con:
+```
+FILE "nombre_del_bin_parcheado.bin" BINARY
+  TRACK 01 MODE2/2352
+    INDEX 01 00:00:00
+```
+
+| Resultado | SHA-1 |
+|---|---|
+| Disco 1 v1.0 | `4e18e9c41e753fcf7c4811a9c93931e5f228aa0b` |
+| Disco 2 v1.0 | `3dc04a107fefeca0b4e9f10d67996536117bf737` |
+
+## Notas
+- Probado en RetroArch. Los dos discos se parchean por separado; usa los dos .cue traducidos (en RetroArch puedes crear un .m3u con ambos para cambiar de disco).
+- Este repositorio **no** contiene el juego ni partes de él: solo los parches y las herramientas para aplicarlos.
+
+## Créditos
+Traducción, romhacking y herramientas: proyecto de traducción de Sampaguita (2026).
+Juego original © 1998 Sony Computer Entertainment / Sugar & Rockets / Production I.G.
